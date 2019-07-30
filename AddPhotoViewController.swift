@@ -8,14 +8,46 @@
 
 import UIKit
 
-class AddPhotoViewController: UIViewController {
+//class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    var imagePicker = UIImagePickerController()
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        imagePicker.delegate = self
+//    }
+//
+//
+//        @IBAction func takeSelfietapped(_ sender: Any) {
+//            imagePicker.sourceType = .camera
+//            present(imagePicker, animated: true, completion: nil)
+//        }
 
+
+
+class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var imagePicker = UIImagePickerController()
+    
+    @IBAction func takeSelfietapped(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func photoLibrary(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        
+    
 
         // Do any additional setup after loading the view.
     }
-    
+}
+
 
     /*
     // MARK: - Navigation
@@ -27,4 +59,6 @@ class AddPhotoViewController: UIViewController {
     }
     */
 
-}
+
+
+
